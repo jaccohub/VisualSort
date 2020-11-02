@@ -1,3 +1,3 @@
-# StarterApp
+# VisualSort
 
-Express &amp; React boilerplate
+Visualise different sorting algorithms.
