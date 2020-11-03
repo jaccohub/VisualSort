@@ -14,12 +14,16 @@ code {
 
 .header {
   background-color: #dedede;
-  display: flex;
-  justify-content: center;
   width: 100%;
   height: 100px;
   top: 0;
   border-bottom: 1px solid black;
+}
+
+.header h1 {
+  justify-content: center;
+  display: flex;
+  margin-top: 0;
 }
 
 .container {
@@ -34,6 +38,7 @@ code {
   margin: 1px;
 }
 
-.input {
-
+.center {
+  display: flex;
+  justify-content: center;
 }
