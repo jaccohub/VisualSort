@@ -5,10 +5,15 @@ export default function AnimationRunner({ freezeFrames, runAnimation }) {
   const [frame, setFrame] = useState(0)
 
   useEffect(() => {
+    // Reset animation
+    if (!runAnimation) setFrame(0)
+  }, [runAnimation])
+
+  useEffect(() => {
+    // Start animation
     if (runAnimation) {
       const interval = setInterval(() => {
         setFrame(currentFrame => {
-          console.log('interval')
           if (freezeFrames.length > currentFrame + 1) {
             return currentFrame + 1
           }
@@ -21,7 +26,7 @@ export default function AnimationRunner({ freezeFrames, runAnimation }) {
         clearInterval(interval)
       }
     }
-  }, [runAnimation, freezeFrames.length])
+  }, [runAnimation])
 
   return (
     <RenderChart

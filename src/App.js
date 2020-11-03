@@ -2,21 +2,27 @@ import React, { useState, useEffect } from 'react'
 import { getRandomInt } from './utils'
 import bubbleSort from './algorithms/bubbleSort'
 import AnimationRunner from './components/AnimationRunner'
+import HeaderRow from './components/HeaderRow'
 
 function comparator(a, b) {
   return a - b
 }
 
 function App() {
-  const [arraySize, setArraySize] = useState(20)
-  const [animate, startAnimation] = useState(false)
+  const [arraySize, setArraySize] = useState(50)
+  const [animate, setAnimate] = useState(false)
+  const [freezeFrames, setFreezeFrames] = useState()
+
   const array = new Array(arraySize).fill(0).map(() => getRandomInt(0, 500))
 
-  const freezeFrames = bubbleSort(array, comparator)
+  useEffect(() => {
+    setFreezeFrames(bubbleSort(array, comparator))
+  }, [arraySize])
 
+  if (!freezeFrames) return null
   return (
-    <div className="container">
-      <button onClick={() => startAnimation(true)}>Animate</button>
+    <div>
+      <HeaderRow start={() => setAnimate(true)} reset={() => setAnimate(false)} />
       <AnimationRunner
         freezeFrames={freezeFrames}
         runAnimation={animate}
