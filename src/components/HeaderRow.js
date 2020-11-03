@@ -1,6 +1,10 @@
 import React from 'react'
 
-export default function HeaderRow({ start, reset }) {
+export default function HeaderRow({ start, reset, arraySize, setArraySize }) {
+  function onChange(e) {
+    setArraySize(Number(e.target.value))
+  }
+
   return (
     <div className="header">
       <select>
@@ -13,6 +17,15 @@ export default function HeaderRow({ start, reset }) {
       <button onClick={reset}>
         Reset
       </button>
+      <input
+        onChange={onChange}
+        type="range"
+        min="5"
+        max="100"
+        defaultValue={arraySize}
+        className="slider"
+        id="slider"
+      />
     </div>
   )
 }

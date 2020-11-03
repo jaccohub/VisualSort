@@ -9,20 +9,26 @@ function comparator(a, b) {
 }
 
 function App() {
-  const [arraySize, setArraySize] = useState(50)
+  const [arraySize, setArraySize] = useState(20)
   const [animate, setAnimate] = useState(false)
   const [freezeFrames, setFreezeFrames] = useState()
 
-  const array = new Array(arraySize).fill(0).map(() => getRandomInt(0, 500))
-
   useEffect(() => {
+    setAnimate(false)
+    const array = new Array(arraySize).fill(0).map(() => getRandomInt(0, 500))
     setFreezeFrames(bubbleSort(array, comparator))
   }, [arraySize])
 
+  // Has to wait for useEffect to run
   if (!freezeFrames) return null
   return (
     <div>
-      <HeaderRow start={() => setAnimate(true)} reset={() => setAnimate(false)} />
+      <HeaderRow
+        start={() => setAnimate(true)}
+        reset={() => setAnimate(false)}
+        arraySize={arraySize}
+        setArraySize={setArraySize}
+      />
       <AnimationRunner
         freezeFrames={freezeFrames}
         runAnimation={animate}
