@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import Chart from './Chart'
 import { getRandomInt } from './utils'
 import bubbleSort from './algorithms/bubbleSort'
-
-function bar(index, height) {
-  return <div key={index} className="bar" style={{ height }} />
-}
+import AnimationRunner from './components/AnimationRunner'
 
 function comparator(a, b) {
   return a - b
@@ -13,14 +9,17 @@ function comparator(a, b) {
 
 function App() {
   const [arraySize, setArraySize] = useState(20)
+  const [animate, startAnimation] = useState(false)
   const array = new Array(arraySize).fill(0).map(() => getRandomInt(0, 500))
 
-  bubbleSort(array)
+  const freezeFrames = bubbleSort(array, comparator)
 
   return (
     <div className="container">
-      <Chart
-        {...array}
+      <button onClick={() => startAnimation(true)}>Animate</button>
+      <AnimationRunner
+        freezeFrames={freezeFrames}
+        runAnimation={animate}
       />
     </div>
   )

@@ -1,16 +1,10 @@
-function sleep(milliseconds) {
-  return new Promise(resolve => setTimeout(resolve, milliseconds))
-}
-
-function comparator(a, b) {
-  return a - b
-}
-
 /**
  * @param {Array} arr array
- * @returns {Array} sorted array
+ * @param {function} comparator function
+ * @returns {Array} array containing every step of the sorting process
  */
-export default function bubbleSort(arr) {
+export default function bubbleSort(arr, comparator) {
+  const results = []
   let temp
   for (let i = 0; i < arr.length; i++) {
     for (let j = i; j > 0; j--) {
@@ -19,6 +13,12 @@ export default function bubbleSort(arr) {
         arr[j] = arr[j - 1]
         arr[j - 1] = temp
       }
+      results.push({
+        current: i,
+        compare: j,
+        array: [...arr]
+      })
     }
   }
+  return results
 }
