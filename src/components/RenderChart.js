@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function RenderChart({ freezeFrames, step }) {
-  const frame = freezeFrames[step]
+  const frame = freezeFrames[step] || freezeFrames[0]
   const { array, current, compare } = frame
 
   return (
