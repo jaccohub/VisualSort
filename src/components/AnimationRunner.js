@@ -26,7 +26,7 @@ export default function AnimationRunner({ freezeFrames, runAnimation }) {
         clearInterval(interval)
       }
     }
-  }, [runAnimation, freezeFrames.length])
+  }, [runAnimation, freezeFrames])
 
   return (
     <RenderChart

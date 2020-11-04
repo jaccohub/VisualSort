@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getRandomInt } from '../utils'
-import bubbleSort from '../algorithms/bubbleSort'
-import quickSort from '../algorithms/quickSort'
+import algorithms from '../algorithms'
 import AnimationRunner from './AnimationRunner'
 import HeaderRow from './HeaderRow'
 
@@ -9,20 +7,16 @@ function comparator(a, b) {
   return a - b
 }
 
-export default function AnimationWrapper() {
-  const [arraySize, setArraySize] = useState(20)
+export default function AnimationWrapper({ array, setArraySize }) {
   const [algoIndex, setAlgoIndex] = useState(0)
   const [animate, setAnimate] = useState(false)
   const [freezeFrames, setFreezeFrames] = useState()
-
-  const algorithms = [bubbleSort, quickSort]
-  const sortFn = algorithms[algoIndex]
+  const sortFn = algorithms[algoIndex].func
 
   useEffect(() => {
     setAnimate(false)
-    const array = new Array(arraySize).fill(0).map(() => getRandomInt(0, 500))
     setFreezeFrames(sortFn(array, comparator))
-  }, [arraySize, sortFn])
+  }, [array, sortFn])
 
   // Has to wait for useEffect to run
   if (!freezeFrames) return null
@@ -31,7 +25,7 @@ export default function AnimationWrapper() {
       <HeaderRow
         start={() => setAnimate(true)}
         reset={() => setAnimate(false)}
-        arraySize={arraySize}
+        arraySize={array.size}
         setArraySize={setArraySize}
         setAlgorithm={setAlgoIndex}
       />
