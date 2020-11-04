@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import RenderChart from './RenderChart'
 
-export default function AnimationRunner({ freezeFrames, runAnimation }) {
+export default function AnimationRunner({ freezeFrames, animate }) {
   const [frame, setFrame] = useState(0)
 
   useEffect(() => {
     // Reset animation
-    if (!runAnimation) setFrame(0)
-  }, [runAnimation])
+    if (!animate) setFrame(0)
+  }, [animate])
 
   useEffect(() => {
     // Start animation
-    if (runAnimation) {
+    if (animate) {
       const interval = setInterval(() => {
         setFrame(currentFrame => {
           if (freezeFrames.length > currentFrame + 1) {
@@ -26,7 +26,7 @@ export default function AnimationRunner({ freezeFrames, runAnimation }) {
         clearInterval(interval)
       }
     }
-  }, [runAnimation, freezeFrames])
+  }, [animate, freezeFrames])
 
   return (
     <RenderChart

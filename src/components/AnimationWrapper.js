@@ -31,7 +31,7 @@ export default function AnimationWrapper({ array, setArraySize }) {
       />
       <AnimationRunner
         freezeFrames={freezeFrames}
-        runAnimation={animate}
+        animate={animate}
       />
     </div>
   )
