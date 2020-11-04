@@ -20,7 +20,7 @@ export default function AnimationRunner({ freezeFrames, runAnimation }) {
           clearInterval(interval)
           return currentFrame
         })
-      }, 50)
+      }, 100)
 
       return () => {
         clearInterval(interval)

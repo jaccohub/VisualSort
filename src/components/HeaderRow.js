@@ -1,17 +1,22 @@
 import React from 'react'
 
-export default function HeaderRow({ start, reset, arraySize, setArraySize }) {
-  function onChange(e) {
+export default function HeaderRow({ start, reset, arraySize, setArraySize, setAlgorithm }) {
+  function onChangeArraySize(e) {
     setArraySize(Number(e.target.value))
+  }
+
+  function onChangeAlgorithm(e) {
+    console.log(e.target.value)
+    setAlgorithm(Number(e.target.value))
   }
 
   return (
     <div className="header">
       <h1>VisualSort</h1>
       <div className="center">
-        <select>
-          <option>Bubble sort</option>
-          <option disabled>Quick sort</option>
+        <select onChange={onChangeAlgorithm}>
+          <option value="0">Bubble sort</option>
+          <option value="1">Quick sort</option>
         </select>
         <button onClick={start}>
           Start
@@ -20,7 +25,7 @@ export default function HeaderRow({ start, reset, arraySize, setArraySize }) {
           Reset
         </button>
         <input
-          onChange={onChange}
+          onChange={onChangeArraySize}
           type="range"
           min="5"
           max="100"
