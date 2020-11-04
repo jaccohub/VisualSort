@@ -6,7 +6,6 @@ export default function HeaderRow({ start, reset, arraySize, setArraySize, setAl
   }
 
   function onChangeAlgorithm(e) {
-    console.log(e.target.value)
     setAlgorithm(Number(e.target.value))
   }
 
