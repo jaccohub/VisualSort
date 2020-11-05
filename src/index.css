@@ -1,10 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway&display=swap");
+
+html {
+  font-size: 62.5%; /* sets 1rem to 10px */
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(to bottom, #FEB8CE,#FFB9D1);
+  font-size: 1.6rem; /* ~16px */
+  min-height: 100vh;
+  margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Open Sans";
+}
+
+h1, h2, h3, h4, h5, p, ul, li {
+  margin: 0;
 }
 
 code {
@@ -13,29 +32,70 @@ code {
 }
 
 .header {
-  background-color: #dedede;
   width: 100%;
-  height: 100px;
-  top: 0;
-  border-bottom: 1px solid black;
+  padding: 2em;
+}
+
+.header * + * {
+  margin-left: 1em;
+}
+
+.header button {
+  border: none;
+  background: #0280E6;
+  color: white;
+  border-radius: 0.5rem;
+  padding: 0.3em 0.8em;
+  font-weight: bold;
+  font-size: 1em;
 }
 
 .header h1 {
   justify-content: center;
   display: flex;
-  margin-top: 0;
+  margin-bottom: 0.5em;
+  color: white;
+  text-shadow:
+  -1px -1px 0 #2C2C2C,
+   1px -1px 0 #2C2C2C,
+   -1px 1px 0 #2C2C2C,
+    1px 1px 0 #2C2C2C;
+    font-size: 3em;
+    letter-spacing: 0.4rem;
 }
 
 .container {
+  padding: 0 1.2rem 2.5em 1.2rem;
+  margin: 2em auto;
+  max-width: 65em;
   display: flex;
+  min-height: 35em;
   justify-content: center;
+  border-radius: 1.2rem;
+  border: 0.8rem solid #F3F3F4;
+  background: linear-gradient(to bottom, #C8E9F4,#CDE8F7);
 }
 
 .bar {
   width: 20px;
-  background-color: aqua;
-  border: 1px solid black;
-  margin: 1px;
+  background: linear-gradient(to bottom, #0280e6,#1dd0d8);
+  border: 0.2rem solid #2C2C2C;
+  margin: 0 0.1rem;
+  border-radius: 0 0 0.4rem 0.4rem;
+  position: relative;
+}
+
+.bar.arrow::before {
+  content: '';
+  position: absolute;
+  height: 1.5rem;
+  width: 2rem;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -160%);
+  background-image: url('/arrow.svg');
+  background-position: center;
+  background-size: cover;
 }
 
 .center {

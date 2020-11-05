@@ -21,7 +21,7 @@ export default function AnimationWrapper({ array, setArraySize }) {
   // Has to wait for useEffect to run
   if (!freezeFrames) return null
   return (
-    <div>
+    <>
       <HeaderRow
         start={() => setAnimate(true)}
         reset={() => setAnimate(false)}
@@ -33,6 +33,6 @@ export default function AnimationWrapper({ array, setArraySize }) {
         freezeFrames={freezeFrames}
         animate={animate}
       />
-    </div>
+    </>
   )
 }
