@@ -88,11 +88,11 @@ code {
 .bar.arrow::before {
   content: '';
   position: absolute;
-  height: 1.5rem;
-  width: 2rem;
+  height: 3rem;
+  width: 4rem;
   top: 0;
   left: 50%;
-  transform: translate(-50%, -160%);
+  transform: translate(-50%, -140%);
   background-image: url('/arrow.svg');
   background-position: center;
   background-size: cover;
