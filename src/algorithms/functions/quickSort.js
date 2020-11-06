@@ -4,15 +4,10 @@ function partition(arr, low, high, comparator) {
   for (let j = low; j < high; j++) {
     if (comparator(arr[j], p) < 0) {
       i++
-      const temp = arr[i]
-      arr[i] = arr[j]
-      arr[j] = temp
+      [arr[i], arr[j]] = [arr[j], arr[i]]
     }
   }
-  const temp = arr[i + 1]
-  arr[i + 1] = arr[high]
-  arr[high] = temp
-
+  [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]]
   return i + 1
 }
 
