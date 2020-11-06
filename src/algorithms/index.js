@@ -1,14 +1,15 @@
 import bubbleSort from './functions/bubbleSort'
-import quickSort from './functions/quickSort'
 import heapSort from './functions/heapSort'
+import quickSort from './functions/quickSort'
+import generateKeyFrames from './generateKeyFrames'
 
 export default [{
   name: 'Bubble sort',
-  func: bubbleSort
-},{
-  name: 'Quick sort',
-  func: quickSort
+  func: (arr, comparator) => generateKeyFrames(arr, comparator, bubbleSort)
 }, {
   name: 'Heap sort',
-  func: heapSort
+  func: (arr, comparator) => generateKeyFrames(arr, comparator, heapSort)
+}, {
+  name: 'Quick sort',
+  func: (arr, comparator) => generateKeyFrames(arr, comparator, quickSort)
 }]
