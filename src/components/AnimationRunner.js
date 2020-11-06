@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import RenderChart from './RenderChart'
 
-export default function AnimationRunner({ freezeFrames, animate }) {
+export default function AnimationRunner({ keyFrames, animate }) {
   const [frame, setFrame] = useState(0)
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export default function AnimationRunner({ freezeFrames, animate }) {
     if (animate) {
       const interval = setInterval(() => {
         setFrame(currentFrame => {
-          if (freezeFrames.length > currentFrame + 1) {
+          if (keyFrames.length > currentFrame + 1) {
             return currentFrame + 1
           }
           clearInterval(interval)
@@ -26,11 +26,11 @@ export default function AnimationRunner({ freezeFrames, animate }) {
         clearInterval(interval)
       }
     }
-  }, [animate, freezeFrames])
+  }, [animate, keyFrames])
 
   return (
     <RenderChart
-      freezeFrames={freezeFrames}
+      keyFrames={keyFrames}
       step={frame}
     />
   )

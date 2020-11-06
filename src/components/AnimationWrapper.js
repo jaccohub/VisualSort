@@ -10,16 +10,16 @@ function comparator(a, b) {
 export default function AnimationWrapper({ array, setArraySize }) {
   const [algoIndex, setAlgoIndex] = useState(0)
   const [animate, setAnimate] = useState(false)
-  const [freezeFrames, setFreezeFrames] = useState()
+  const [keyFrames, setKeyFrames] = useState()
   const sortFn = algorithms[algoIndex].func
 
   useEffect(() => {
     setAnimate(false)
-    setFreezeFrames(sortFn(array, comparator))
+    setKeyFrames(sortFn(array, comparator))
   }, [array, sortFn])
 
   // Has to wait for useEffect to run
-  if (!freezeFrames) return null
+  if (!keyFrames) return null
   return (
     <>
       <HeaderRow
@@ -30,7 +30,7 @@ export default function AnimationWrapper({ array, setArraySize }) {
         setAlgorithm={setAlgoIndex}
       />
       <AnimationRunner
-        freezeFrames={freezeFrames}
+        keyFrames={keyFrames}
         animate={animate}
       />
     </>
