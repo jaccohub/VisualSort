@@ -36,7 +36,11 @@ function sort(arr, low, high, comparator, results) {
 
 export default function quickSort(arr, comparator) {
   const [...arrayCopy] = arr
-  const results = []
+  const results = [{
+    current: 0,
+    compare: 0,
+    array: arr
+  }]
   const low = 0
   const high = arr.length - 1
   sort(arrayCopy, low, high, comparator, results)

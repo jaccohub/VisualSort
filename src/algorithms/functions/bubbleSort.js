@@ -1,6 +1,10 @@
 export default function bubbleSort(arr, comparator) {
   const [...arrayCopy] = arr
-  const results = []
+  const results = [{
+    current: 0,
+    compare: 0,
+    array: arr
+  }]
   let temp
   for (let i = 0; i < arrayCopy.length; i++) {
     for (let j = i; j > 0; j--) {
