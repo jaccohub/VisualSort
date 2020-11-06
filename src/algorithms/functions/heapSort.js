@@ -51,5 +51,10 @@ export default function heapSort(arr, comparator) {
     array: arr
   }]
   sort(arrayCopy, comparator, results)
+  results.push({
+    current: 0,
+    compare: 0,
+    array: arrayCopy
+  })
   return results
 }

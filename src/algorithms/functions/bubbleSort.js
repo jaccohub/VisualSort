@@ -20,5 +20,10 @@ export default function bubbleSort(arr, comparator) {
       })
     }
   }
+  results.push({
+    current: 0,
+    compare: 0,
+    array: arrayCopy
+  })
   return results
 }

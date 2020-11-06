@@ -44,5 +44,10 @@ export default function quickSort(arr, comparator) {
   const low = 0
   const high = arr.length - 1
   sort(arrayCopy, low, high, comparator, results)
+  results.push({
+    current: 0,
+    compare: 0,
+    array: arrayCopy
+  })
   return results
 }
