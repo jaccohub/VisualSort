@@ -7,7 +7,7 @@ function App() {
   const [array, setArray] = useState(new Array(arraySize).fill(0).map(() => getRandomInt(0, 500)))
 
   useEffect(() => {
-    setArray(new Array(arraySize).fill(0).map(() => getRandomInt(0, 500)))
+    setArray(new Array(arraySize).fill(0).map(() => getRandomInt(10, 500)))
   }, [arraySize])
 
   return (
