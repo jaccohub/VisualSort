@@ -1,12 +1,12 @@
-function heapify(arr, length, i, results) {
+function heapify(arr, length, i, comparator, results) {
   let largest = i
   let left = i * 2 + 1
   let right = left + 1
 
-  if (left < length && arr[left] > arr[largest]) {
+  if (left < length && comparator(arr[left], arr[largest]) > 0) {
     largest = left
   }
-  if (right < length && arr[right] > arr[largest]) {
+  if (right < length && comparator(arr[right], arr[largest]) > 0) {
     largest = right
   }
   if (largest !== i) {
@@ -16,7 +16,7 @@ function heapify(arr, length, i, results) {
       compare: largest,
       array: [...arr]
     })
-    heapify(arr, length, largest, results)
+    heapify(arr, length, largest, comparator, results)
   }
   return arr
 }
@@ -27,7 +27,7 @@ function sort(arr, comparator, results) {
   let k = length - 1
 
   while (i >= 0) {
-    heapify(arr, length, i, results)
+    heapify(arr, length, i, comparator, results)
     i--
   }
   while (k >= 0) {
@@ -37,7 +37,7 @@ function sort(arr, comparator, results) {
       compare: k,
       array: [...arr]
     })
-    heapify(arr, k, 0, results)
+    heapify(arr, k, 0, comparator, results)
     k--
   }
   return arr
