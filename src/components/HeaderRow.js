@@ -15,7 +15,11 @@ export default function HeaderRow({ start, reset, arraySize, setArraySize, setAl
       <h1>VisualSort</h1>
       <div className="center">
         <select onChange={onChangeAlgorithm}>
-          {algorithms.map((algo, index) => <option key={index} value={index}>{algo.name}</option>)}
+          {algorithms.map((algo, index) => (
+            <option key={index} value={index} disabled={algo.disabled}>
+              {algo.name}
+            </option>)
+          )}
         </select>
         <button onClick={start}>
           Start

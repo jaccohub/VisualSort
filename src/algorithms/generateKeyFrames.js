@@ -1,7 +1,7 @@
 /**
- * @argument array pass to sortingFn
- * @argument comparator to pass to sortingFn
- * @argument sortingFn fn that takes two arguments (array, comparator) and sorts the original array. No return value needed.
+ * @argument array
+ * @argument comparator
+ * @argument sortingFn fn that takes two arguments (array, comparator)
  * @returns keyFrames
  */
 function generateKeyFrames(array, comparator, sortingFn) {
