@@ -20,7 +20,7 @@ export default function AnimationRunner({ keyFrames, animate }) {
           clearInterval(interval)
           return currentFrame
         })
-      }, 50)
+      }, 300)
 
       return () => {
         clearInterval(interval)
