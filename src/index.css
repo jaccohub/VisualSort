@@ -65,7 +65,7 @@ code {
 }
 
 .chart {
-  padding: 0 1.2rem 2.5em 1.2rem;
+  padding: 0 0 2.5em 0;
   margin: 2em auto;
   max-width: 65em;
   display: flex;
@@ -85,17 +85,14 @@ code {
   position: relative;
 }
 
-.bar.arrow::before {
-  content: '';
+.arrow {
   position: absolute;
   height: 3rem;
   width: 4rem;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -140%);
   background-image: url('/arrow.svg');
   background-position: center;
   background-size: cover;
+  transition: transform 0.1s cubic-bezier(0.7, 0, 0.3, 1);
 }
 
 .center {
