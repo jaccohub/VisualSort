@@ -25,7 +25,7 @@ export default function AnimationWrapper({ array, setArraySize }) {
       <HeaderRow
         start={() => setAnimate(true)}
         reset={() => setAnimate(false)}
-        arraySize={array.size}
+        arraySize={array.length}
         setArraySize={setArraySize}
         setAlgorithm={setAlgoIndex}
       />
